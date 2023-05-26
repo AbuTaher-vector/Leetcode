@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>>v;
+      if(numRows==1){
+        vector<int>k;
+      	k.push_back(1);
+        v.push_back(k);
+      } else{
+           vector<int>k;
+          k.push_back(1);
+          v.push_back(k);
+          k.push_back(1);
+          v.push_back(k);
+           numRows-=2;
+           while(numRows--){
+               vector<int>k;
+               k=v.back();
+               vector<int>t;
+               t.push_back(1);
+               for(int i=1;i<k.size();i++) t.push_back(k[i]+k[i-1]);
+               t.push_back(1);
+               v.push_back(t);
+           }
+      }
+      return v;
+    }
+};
+
+//Link : https://leetcode.com/problems/pascals-triangle/description/
