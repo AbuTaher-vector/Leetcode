@@ -1,0 +1,12 @@
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums) {
+        vector<int>v;
+        v=nums;
+        while(next_permutation(nums.begin(),nums.end())){
+            break;
+        }
+        if(v==nums) sort(nums.begin(),nums.end());
+
+    }
+};
