@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+        if(is_sorted(nums.begin(),nums.end())){
+            return true;
+        }
+        int ind;
+        for(int i=1;i<nums.size();i++){
+            if(nums[i]<nums[i-1]){
+                ind=i;
+                break;
+            }
+        }
+        reverse(nums.begin(),nums.begin()+ind);
+        reverse(nums.begin()+ind,nums.end());
+        reverse(nums.begin(),nums.end());
+        bool ans=false;
+        if(is_sorted(nums.begin(),nums.end())){
+           ans=true;
+        }
+        return ans;
+
+    }
+};
+// Link : https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/description/
