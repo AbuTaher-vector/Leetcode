@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+        int ans=-1;
+        for(int i=1;i<nums.size();i++) nums[i]+=nums[i-1];
+        if(nums.back()-nums[0]==0){
+            ans=0;
+        }else{
+            for(int i=1;i<nums.size();i++){
+                if(nums[i-1]==nums.back()-nums[i]){
+                    ans=i;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
